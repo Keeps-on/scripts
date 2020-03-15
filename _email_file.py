@@ -39,10 +39,10 @@ msg.attach(mail_inside)  # 将文本文件的内容传入
 
 # 构建文件附件
 attr1 = MIMEText(open('email_test.txt', 'rb').read(), 'base64', 'utf-8')
-att1["Content-Type"] = 'application/octet-stream'
+attr1["Content-Type"] = 'application/octet-stream'
 # 这里的filename可以任意写，写什么名字，邮件中显示什么名字
-att1["Content-Disposition"] = 'attachment; filename="test.txt"'
-msg.attach(att1)
+attr1["Content-Disposition"] = 'attachment; filename="test.txt"'
+msg.attach(attr1)
 
 try:
     smtp = smtplib.SMTP_SSL("smtp.163.com", 465)

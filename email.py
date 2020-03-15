@@ -1,35 +1,57 @@
-# 基础版本发送邮件
-import smtplib
+# -*- coding: utf-8 -*-
+# @Time    : 2020/2/3 18:22
+# @Author  : Lee
+# @Email  : 1299793997@qq.com
+# @File  : email.py
 
+import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+
 # https://blog.csdn.net/weixin_44755148/article/details/92623759
 
-# smtp = smtplib.SMTP()  # 实例化SMTP()
-# smtp.connect('smtp.163.com,25')
-# smtp.login(username, password)
-# smtp.sendmail(sender, receiver, msg.as_string())
-# smtp.quit()
-
+##################################################
+#              单人发送邮件
+##################################################
 
 # 发件人信息
 msg_from = 'lippjobemail@163.com'
 passwd = 'lipanpan0613'
 
 # 收件人信息
-# msg_to = '1299793997@qq.com'
-msg_to = ['1299793997@qq.com', '564060577@qq.com']
+msg_to = '1299793997@qq.com'
 
-email_subject = '测试邮件'
-email_content = '这次是最新的一xxxxxxxxxxxx次测试'
-# 构造邮件
+# 邮件内容
+email_content = "单人发送邮件测试"
+email_subject = "邮件主题测试"
 msg = MIMEText(email_content)
 msg["Subject"] = email_subject
 msg['From'] = msg_from
-# msg['To'] = msg_to
-msg['To'] = ','.join(msg_to)
-print(msg['To'].split(','))
-print(','.join(msg_to))
+msg['To'] = msg_to
+
+try:
+    smtp = smtplib.SMTP_SSL("smtp.163.com", 465)
+    smtp.login(msg_from, passwd)
+    smtp.sendmail(msg_from, msg_to, msg.as_string())
+    # smtp.sendmail(msg_from, msg['To'].split(','), msg.as_string())
+    print('发送成功')
+except smtp.SMTPException as e:
+    print(e)
+finally:
+    smtp.quit()
+
+# msg_to = ['1299793997@qq.com', '564060577@qq.com']
+
+# email_subject = '测试邮件'
+# email_content = '这次是最新的一xxxxxxxxxxxx次测试'
+# # 构造邮件
+# msg = MIMEText(email_content)
+# msg["Subject"] = email_subject
+# msg['From'] = msg_from
+# # msg['To'] = msg_to
+# msg['To'] = ','.join(msg_to)
+# print(msg['To'].split(','))
+# print(','.join(msg_to))
 # subject = "邮件标题"  # 主题
 # # 创建一个带附件的实例
 # msg = MIMEMultipart()
@@ -53,17 +75,17 @@ print(','.join(msg_to))
 # msg.attach(att1)
 
 
+# try:
+#     smtp = smtplib.SMTP_SSL("smtp.163.com", 465)
+#     smtp.login(msg_from, passwd)
+#     # smtp.sendmail(msg_from, msg_to, msg.as_string())
+#     # smtp.sendmail(msg_from, msg['To'].split(','), msg.as_string())
+#     smtp.sendmail(msg_from, msg_to, msg.as_string())
+#     print('发送成功')
+# except Exception as e:
+#     print(e)
+#     print('发送失败')
 
-try:
-    smtp = smtplib.SMTP_SSL("smtp.163.com", 465)
-    smtp.login(msg_from, passwd)
-    # smtp.sendmail(msg_from, msg_to, msg.as_string())
-    # smtp.sendmail(msg_from, msg['To'].split(','), msg.as_string())
-    smtp.sendmail(msg_from, msg_to, msg.as_string())
-    print('发送成功')
-except Exception as e:
-    print(e)
-    print('发送失败')
 
 """
 
@@ -116,6 +138,3 @@ finally:
 # https://www.jianshu.com/p/37208d18eb64
 # https://blog.csdn.net/weixin_44755148/article/details/92623759 发送到多人
 # 发送附件
-
-
-

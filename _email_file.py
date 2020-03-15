@@ -4,6 +4,7 @@
 # @Email  : 1299793997@qq.com
 # @File  : _email_file.py
 # https://blog.csdn.net/weixin_44755148/article/details/92623759
+# https://blog.csdn.net/weixin_30326745/article/details/95724850
 
 
 import smtplib

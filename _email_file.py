@@ -3,6 +3,7 @@
 # @Author  : Lee
 # @Email  : 1299793997@qq.com
 # @File  : _email_file.py
+# https://blog.csdn.net/weixin_44755148/article/details/92623759
 
 
 import smtplib
@@ -54,3 +55,5 @@ except smtp.SMTPException as e:
     print(e)
 finally:
     smtp.quit()
+
+

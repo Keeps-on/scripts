@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单布局的使用</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            width: 1000px;
+            height: 150px;
+            background-color: #00c5de;
+            margin: 0 auto;
+        }
+
+        .content {
+            width: 1000px;
+            height: 400px;
+            background-color: #b2dba1;
+            margin: 10px auto;
+        }
+
+        .content .left {
+            width: 200px;
+            height: 100%;
+            background-color: skyblue;
+            float: left;
+        }
+
+        .content .center {
+            width: 580px;
+            height: 100%;
+            background-color: red;
+            float: left;
+            margin: 0 10px
+
+        }
+
+        .content .right {
+            width: 200px;
+            height: 100%;
+            background-color: blueviolet;
+            float: left;
+
+        }
+
+        .footer {
+            width: 1000px;
+            height: 150px;
+            background-color: rebeccapurple;
+            margin: 0 auto;
+
+        }
+    </style>
+</head>
+<body>
+<!--头部-->
+<div class="header"></div>
+<!--主体内容-->
+<div class="content">
+    <!--左侧的div-->
+    <div class="left"></div>
+    <!--中间的div-->
+    <div class="center"></div>
+    <!--右侧的div-->
+    <div class="right"></div>
+</div>
+<!--尾部-->
+<div class="footer"></div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var obj = {'name': 'Lisa', 'age': 18}
+            $.each(obj, function (k, v) {
+                console.log(k, v) // 返回键值对
+                // name Lisa
+                // age 18
+            });
+
+            // 循环遍历数组
+            var test = [1, 2, 3];
+            $.each(test, function (index, value) {
+                console.log(index);  // 0, 1, 2 返回的索引值
+                console.log(value); // 1, 2, 3  返回的是值
+                console.log('-----------')
+            })
+
+        });
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

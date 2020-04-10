@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var vip = true;
+            if (vip) {
+                console.log("vip");
+            } else {
+                console.log("not vip");
+            }
+            // 三元运算符
+            vip ? console.log("vip") : console.log("not vip");
+
+            // 函数使用三元运算符
+            var flag = true;
+
+            function a() {
+                console.log("a is do something")
+            }
+
+            function b() {
+                console.log("b is do something")
+            }
+
+            flag ? a() : b();
+
+            // 三元运算符 使用jQuery
+            flag ? $('body').addClass('hover') : $('body').removeClass('hover');
+
+            // 等同于
+            $('body')[flag ? 'addClass' : 'removeClass']('hover')
+            flag = true;
+            // 即当  flag = true  的时候，代码就变成
+            $('body')['addClass']('hover');
+            // 这样就等同于  Jquery  中的
+            $('body').addClass('hover')
+
+        });
+    </script>
+</head>
+<body>
+<!--
+                    true--result      false--result
+(expression1)  ?  (expression2)  :  (expression3)
+expression1  求值为  true  时的值为  expression2
+expression1  求值是  false  时的值为  expression3
+
+
+
+-->
+</body>
+</html>

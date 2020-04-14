@@ -37,6 +37,12 @@ git checkout -
 git push -u origin develop
 git checkout -
 git push -u origin feat-user
+# 创建分支
+git branch dev
+# 切换分支
+git checkout dev
+# 查看当前所在分支
+git branch -l
 ```
 8、删除本地分支
 ```

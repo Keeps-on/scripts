@@ -46,8 +46,8 @@ git branch -d [branch-name]
 9、删除远程分支
 ```
 git push origin --delete [branchname]
-``
-`
+```
+
 ---
 ### git 版本回退
 #### 本地到暂存区(add)
